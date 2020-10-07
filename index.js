@@ -29,18 +29,18 @@ function multiplication() {
     });
 }
 
+const momIsMad = momIsMadRandomAnswer();
 
-function birthdayGift() {
+function birthdayGift(momIsMad) {
     return new Promise((resolve, reject) => {
         console.log('hola')
-        const momIsMad = momIsMadRandomAnswer();
         if(momIsMad) {
             const err = new Error(
                 `Mi madre decidió no comprarme un nuevo teléfono`);
-            reject(err);
+            return reject(err);
         }
 
-        resolve(`Mi mamá está feliz!, me compró un nuevo teléfono`);
+        return resolve(`Mi mamá está feliz!, me compró un nuevo teléfono`);
     });
 }
-module.exports = sum;
+module.exports = {sum, momIsMadRandomAnswer, reverseArray, promise, multiplication, birthdayGift};
